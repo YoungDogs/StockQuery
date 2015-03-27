@@ -90,6 +90,9 @@ public class DataHandler {
 			if(stocks == null || stocks.size() == 0){
 				stocks = new ArrayList<String>();
 				stocks.addAll(stockList);	
+				if(stockList.size()>0){
+					_addQuotes(stockList);
+				}
 			}
 			else{
 				ArrayList<String> newStocks =new ArrayList<String>();
