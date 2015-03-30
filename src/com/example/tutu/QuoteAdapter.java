@@ -7,6 +7,7 @@ import java.util.zip.Inflater;
 import android.content.Context;
 import android.database.DataSetObserver;
 import android.graphics.Color;
+import android.os.Handler;
 import android.os.storage.StorageManager;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,12 +18,12 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 public class QuoteAdapter extends BaseAdapter implements ListAdapter {
 	LayoutInflater inflater;
-	Context context
-	;
+	Context context;
 	MainActivity mainActivity;
 	private DataHandler dataHandler;
 	int progressInterval;
 	DataHandler mDataHandler = new DataHandler(context);
+	Handler messageHandler = new Handler();
 
 	public QuoteAdapter(MainActivity aController, Context mContext,
 			DataHandler mdataHandler) {
@@ -30,7 +31,6 @@ public class QuoteAdapter extends BaseAdapter implements ListAdapter {
 		mainActivity = aController;
 		dataHandler = mdataHandler;
 	}
-
 	@Override
 	public int getCount() {
 		return dataHandler.getSize();
@@ -70,6 +70,7 @@ public class QuoteAdapter extends BaseAdapter implements ListAdapter {
 			color = Color.rgb(119, 138, 170);
 		}
 		cellLayout.setBackgroundColor(color);
+		//System.out.println(position);
 		quote = dataHandler.getQuoteForIndex(position);
 		TextView field = (TextView) cellLayout.findViewById(R.id.symbol);
 		field.setText(quote.getNo());
@@ -98,15 +99,6 @@ public class QuoteAdapter extends BaseAdapter implements ListAdapter {
 		cellLayout.setClickable(true);
 		cellLayout.setOnClickListener(mainActivity);
 		return cellLayout;
-	}
-	public void addSymbolsToFile(ArrayList<String> symbols){
-		//强行更新页面数据
-		//forceUpdate = true;
-		//添加股票到文件中
-		mDataHandler.addSymbolsToFile(symbols);
-		//mDataHandler._addQuotes(symbols);
-		//添加消息到消息队列
-		//messageHandler.post(this);
 	}
 	@Override
 	public int getViewTypeCount() {
@@ -148,5 +140,7 @@ public class QuoteAdapter extends BaseAdapter implements ListAdapter {
 		// TODO 自动生成的方法存根
 		return false;
 	}
+
+
 
 }

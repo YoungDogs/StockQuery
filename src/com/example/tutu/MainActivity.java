@@ -8,8 +8,10 @@ import java.util.ArrayList;
 import java.util.Timer;
 import java.util.TimerTask;
 
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.StrictMode;
 import android.app.Activity;
 import android.app.Dialog;
 import android.app.ListActivity;
@@ -55,10 +57,13 @@ public class MainActivity extends ListActivity implements OnClickListener{
 	protected void onCreate(Bundle savedInstanceState) {
 		
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.main_activity);
+		setContentView(R.layout.main_activity);		
 		mContext=this;
 		//验证当前存放股票代码的文件是否存在
-		File mFile =new File("/data/data/com.example.tutu/files/symbols.txt");
+//		StrictMode.setThreadPolicy(new StrictMode.ThreadPolicy.Builder().detectDiskReads().detectDiskWrites().detectNetwork().build());
+
+//		StrictMode.setVmPolicy(new StrictMode.VmPolicy.Builder().detectLeakedRegistrationObjects().penaltyLog().penaltyDeath().build());
+		File mFile = new File("/data/data/com.example.tutu/files/symbols.txt");
 		if(mFile.exists())
 		{
 			Log.e("guojs","file exist");
@@ -115,7 +120,7 @@ public class MainActivity extends ListActivity implements OnClickListener{
 		// TODO 自动生成的方法存根
 		addButton = (Button) findViewById(R.id.add_symbols_button);
 		if(v == addButton);{
-			Toast.makeText(mContext, "股票添加成功", Toast.LENGTH_SHORT).show();
+
 			addSymbol();
 		}
 		
