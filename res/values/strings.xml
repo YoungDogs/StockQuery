@@ -1,9 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
-    <string name="app_name">股票查询软件</string>
-    <string name="action_settings">Settings</string>
-    <string name="hello_world">Hello world!</string>
+    <string name="app_name">股票查询</string>
     <string name="no_stocks">没有添加任何股票</string>
     <string name="button1">button1</string>
     <string name="button2">button2</string>
@@ -12,7 +9,4 @@
     <string name="close">Close</string>    
     <string name="ok">Ok</string>    
     <string name="delete">删除</string>    
-
-    
-
 </resources>

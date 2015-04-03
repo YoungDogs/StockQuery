@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+	android:id="@+id/list_container"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+    <LinearLayout android:layout_width="wrap_content"
+          android:orientation="horizontal"          
+          android:layout_height="wrap_content"
+          android:id="@+id/titleBar" >
+        <TextView
+	        android:text="股票代码"
+	        android:id="@+id/symbols"
+			android:layout_width="90sp"
+			android:layout_height="wrap_content"
+			android:textSize="18sp"
+			android:singleLine="true"
+			android:typeface="sans"
+			android:textStyle="bold"
+			android:paddingLeft="3sp"
+			android:paddingRight="3sp" />
+	<!-- 显示股票的名称 -->
+		<TextView
+		    android:text="股票名称"
+		    android:id="@+id/names"
+		    android:layout_width="100sp"
+		    android:layout_height="wrap_content"
+		    android:layout_toRightOf="@+id/symbols"
+		    android:gravity="left"
+		    android:paddingLeft="3dip"
+		    android:paddingRight="10dip"
+		    android:singleLine="true"
+		    android:textSize="18sp"
+		    android:textStyle="bold"
+		    android:typeface="sans" />
+		<!-- 显示股票的当前价格 -->
+		<TextView
+			android:text="现价"
+			android:id="@+id/currents"
+			android:layout_width="60sp"
+			android:layout_height="wrap_content"
+			android:textSize="18sp"
+			android:singleLine="true"
+			android:typeface="sans"
+			android:gravity="left"
+			android:textStyle="bold"
+			android:paddingLeft="3dip"
+			android:paddingRight="5dip"
+			android:layout_toRightOf="@+id/names" />
+		<!-- 显示股票的涨跌百分比 -->
+		<TextView
+			android:text="涨跌(%)"
+			android:layout_width="80sp"
+			android:layout_height="wrap_content"
+			android:textSize="18sp"
+			android:singleLine="true"
+			android:typeface="sans"
+			android:gravity="left"
+			android:textStyle="bold"
+			android:paddingLeft="3dip"
+			android:paddingRight="5dip"
+			android:layout_toRightOf="@+id/currents"
+			android:layout_alignParentRight="true" />
+      </LinearLayout>
+      <!-- 股票信息列表 -->
+      <RelativeLayout android:layout_width="wrap_content"
+          android:orientation="horizontal"  
+          android:layout_below="@+id/titleBar"        
+          android:layout_height="wrap_content">
+	      <ListView android:id="@android:id/list"
+	          android:layout_width="fill_parent" 
+	          android:layout_height="370dip"
+	          android:layout_alignParentTop="true"
+	          android:choiceMode="singleChoice"
+	          android:orientation="horizontal"
+	          />
+	   </RelativeLayout>
+       <!-- 位于界面最下方的界面布局 -->   
+       <RelativeLayout
+          android:layout_width="wrap_content"
+          android:orientation="horizontal" 
+          android:layout_alignParentBottom="true"         
+          android:layout_height="wrap_content">    
+        	 <!-- 股票代码添加文本框 -->    
+			<EditText 
+			    android:id="@+id/stock_symbols"
+				android:gravity="bottom"
+				android:layout_width="280dp"
+				android:layout_alignParentBottom="true"
+	      		android:hint="@string/enter_symbols"
+	      		android:editable="true"
+	      		android:singleLine="true"
+	      		android:layout_height="wrap_content"/>
+			<!-- 股票添加按钮 -->	
+	      	<Button 
+	      	    android:id="@+id/add_symbols_button"
+	          	android:text="@string/add"
+	          	android:layout_alignParentBottom="true"
+				android:layout_alignParentRight="true"
+	          	android:layout_width="wrap_content"
+	          	android:layout_height="wrap_content" />         	
+		</RelativeLayout>
+
+</RelativeLayout>
